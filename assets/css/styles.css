@@ -78,18 +78,19 @@ h2 {
     transform: scale(1.025);
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 1000px) {
     .button-explore {
         font-size: 1.5rem;
         padding: .75rem 2rem;
     }
-}
+} */
 
 #nationalParkstableContainer {
     border: 3px solid purple;
     font-family: 'Rock Salt', cursive;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
     width: 100%;
+    /* column-gap: 4px; */
 
     /* font-weight: bold; */
     /* font-size: 8px; */
@@ -99,8 +100,30 @@ h2 {
     font-weight: bold;
     background-color: #04AA6D;
     color: white;
-    width: 100%;
+    /* width: 100%; */
+    border: solid;
+    border-width: 1px 0;
+
 }
+
+.nationalParksByTypeTable{
+    border: solid;
+    border-width: 1px 0;
+    /* border-collapse: collapse; */
+}
+
+tr { 
+    border: solid;
+    border-width: 1px 0;
+  }
+
+  #nationalParkstableContainer td {
+    padding: 0 10px;
+  }
+
+  #displayAllParksButton div{
+    padding: 50px;
+  }
 
 /* .nationalParksByTypeTable-Body{
     background-color: #1d0b0b;

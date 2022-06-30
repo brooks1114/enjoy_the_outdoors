@@ -3,10 +3,28 @@ let jurisdictionDropDownList = document.querySelector("#jurisdictionDropDownList
 let searchTypeDropDownWE = document.querySelector("#searchTypeDropDown");
 let parkTypesDropDownListWE = document.querySelector("#typeDropDownList");
 let nationalParkstableContainer = document.querySelector("#nationalParkstableContainer");
+let displayAllParksButton = document.querySelector("#displayAllParksButton");
+
 let tableHeadersNationalParks = ["LocationName", "Address", "City", "State", "Phone"];
 
 let UsersParkList = [];
 
+
+displayAllParksButton.addEventListener("click", function (event) {
+    // alert("You pushed the give all button");
+    // clearNationalParkstableContainer();
+    // clearArray(UsersParkList);
+    UsersParkList = [];
+    UsersParkList = nationalParksArray;
+    // console.log("getParkListToDisplayByState: " + JSON.stringify(UsersParkList));
+
+    // generate the table and header columns
+    generateTableNationalParksByType();
+    // generate the row data for the table and append it to the table element
+    generateRows(UsersParkList);
+
+
+})
 // Locations Drop Down.
 // This generates the values for the drop down.
 // currently the state list from locations json array
@@ -79,9 +97,8 @@ jurisdictionDropDownList.addEventListener("change", function (event) {
     // console.log(nationalParksArray[0][0]);
 
     // clear the user search reulsts list
-    clearArray(UsersParkList);
-
-
+    // clearArray(UsersParkList);
+    UsersParkList = [];
     UsersParkList = nationalParksArray.filter(getParkListToDisplayByState);
     // console.log("getParkListToDisplayByState: " + JSON.stringify(UsersParkList));
 
@@ -98,9 +115,10 @@ parkTypesDropDownListWE.addEventListener("change", function (event) {
     // let parkTypeSelected = parkTypesDropDownListWE.value;
     // console.log("jurs selected by user equals: " + parkTypeSelected);
 
-    clearArray(UsersParkList);
+    // clearArray(UsersParkList);
+    UsersParkList = [];
     UsersParkList = nationalParksArray.filter(getParkListToDisplayByLocationName);
-    console.log("getParkListToDisplayByLocationName: " + JSON.stringify(UsersParkList));
+    // console.log("getParkListToDisplayByLocationName: " + JSON.stringify(UsersParkList));
 
     // generate the table and header columns
     generateTableNationalParksByType();
@@ -132,12 +150,13 @@ function getParkListToDisplayByState(array) {
 
 }
 
+// NOTE had to delete using this function, it caused the lists to stop populating when switching between drop down and buttons
 // generic function to clear out data in an array
-function clearArray(array) {
-    while (array.length) {
-        array.pop();
-    }
-}
+// function clearArray(array) {
+//     while (array.length) {
+//         array.pop();
+//     }
+// }
 
 // This clears the container that holds the search reults. The table creator function and drop down selectors use this.
 //  Clearing the conatiner will prevent prior search results from being retained.
@@ -212,14 +231,23 @@ function generateRows(array) {
 
         let LocationName = document.createElement('td')
 
+        // stretch goal. look at the national park object, if it contains a weblink then create an anchor for the href
+        // determinition is made if the park object is missing the "Visit" attribute. that could lead to bad links if attribute is added to array objects. leaving this In
         if (array[i].Visit !== undefined) {
+            // obtain URL
             var webLink = array[i].Visit;
+            // create the anchor
             var aTag = document.createElement('a');
+            // add the href and set the link 
             aTag.setAttribute('href', webLink);
+            // set the anchor to open in a new tab
             aTag.setAttribute('target', '_blank');
+            // set the visible text in the table to the location name
             aTag.innerText = array[i].LocationName;
+            // add the anchor to the td
             LocationName.appendChild(aTag);
         } else {
+            // else - if the Visit attribute is not availble put the Location name in the td, no anchor or link
             LocationName.innerText = array[i].LocationName
         }
         let Address = document.createElement('td')
@@ -230,7 +258,7 @@ function generateRows(array) {
         State.innerText = array[i].State
         let Phone = document.createElement('td')
         if (array[i].Phone == 0) {
-            Phone.innerText = "Phone # Not Available"
+            Phone.innerText = "Not Available"
         } else
             Phone.innerText = array[i].Phone
 
@@ -243,7 +271,7 @@ function generateRows(array) {
 
 
 
-// garbage code - keep for reference only until project is done.
+    // garbage code - keep for reference only until project is done.
 
 
 
