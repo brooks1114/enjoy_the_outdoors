@@ -3,7 +3,6 @@
 let locationsArray = []
 let nationalParksArray = []
 let parkTypesArray = []
-// let jurisdictionDropDownList = document.querySelector("#jurisdictionDropDownList");
 
 window.onload = function(){
 
@@ -17,10 +16,6 @@ window.onload = function(){
 
     loadJsonData("assets/data/parktypes.json").then((parkTypes) => {
         parkTypesArray = parkTypes;
-    })
-
-    locationsArray.forEach((location) => {
-        jurisdictionDropDownList.innerHTML += `<option value="${location}">${location}</option>`;
     })
 
 }

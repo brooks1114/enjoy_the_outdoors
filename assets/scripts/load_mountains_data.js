@@ -2,10 +2,14 @@
 
 let mountainsArray = []
 
-window.onload = function(){
+window.onload = function () {
 
     loadJsonData("assets/data/mountains.json").then((mountains) => {
         mountainsArray = mountains.mountains;
+
+        // populate the drop down values on load (Question for Eric - good bad practice / risks?)
+        getMountainNamesFromFile();
+        generateMountainSelectDropDownListOptions();
     })
 
 }
