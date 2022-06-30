@@ -11,7 +11,7 @@ h2 {
 #welcomeBanner {
     /* Use "linear-gradient" to add a darken background effect. This will make the text easier to read */
     box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.3);
-    background-image: url("../images/mountains/Moriah-StoryImg.jpg");
+    background-image: url("../images/samples/ex2.jpg");
     /* Set a specific height */
     /* height: 100%; */
 
