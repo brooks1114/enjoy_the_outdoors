@@ -49,28 +49,30 @@
         <!-- INITIAL IMAGE BANNER -->
         <div id="welcomeBannerParks">
             <h1 class="container-fluid" id="welcomeMessage">National Park Search Page</h1>
-            
+
             <select name="" id="searchTypeDropDown" class="form-select form-select-lg mb-3"
-            aria-label=".form-select-lg example">
-                <option value ="default">Choose a Search Type</option>
-                <option value ="location">Search by Location</option>
-                <option value ="type">Search by Type</option>
+                aria-label=".form-select-lg example">
+                <option value="default">Choose a Search Type</option>
+                <option value="location">Search by Location</option>
+                <option value="type">Search by Type</option>
             </select>
 
             <select id="jurisdictionDropDownList" class="form-select form-select-lg mb-3 d-none"
                 aria-label=".form-select-lg example">
                 <option selected>Search By Location</option>
-                <option value =""></option>
+                <option value=""></option>
             </select>
 
             <select id="typeDropDownList" class="form-select form-select-lg mb-3 d-none"
                 aria-label=".form-select-lg example">
-                <option selected>Search By Type</option>
-                <option value =""></option>
+                <option selected>Search By Park Type</option>
+                <option value=""></option>
             </select>
 
         </div>
-        <h1>Welcome to the National Parks Search Page!</h1>
+        <h1>The results of your search will be listed below.</h1>
+        <h2>If the location found has a blue link, click on it to visit their website!</h2>
+        <div class="container mt-5 table-responsive" id="nationalParkstableContainer"></div>
 
     </main>
     <!-- Bootstrap Bundle with Popper -->
@@ -79,6 +81,7 @@
         crossorigin="anonymous"></script>
     <script src="assets/scripts/load_national_parks_data.js"></script>
     <script src="assets/scripts/national_parks.js"></script>
+
 
 </body>
 

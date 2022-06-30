@@ -1,3 +1,12 @@
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 16px;
+}
+
 /* The hero image */
 #welcomeBanner {
     /* Use "linear-gradient" to add a darken background effect. This will make the text easier to read */
@@ -75,3 +84,29 @@
         padding: .75rem 2rem;
     }
 }
+
+#nationalParkstableContainer {
+    border: 3px solid purple;
+    font-family: 'Rock Salt', cursive;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+    width: 100%;
+
+    /* font-weight: bold; */
+    /* font-size: 8px; */
+}
+
+.nationalParksByTypeTableHead {
+    font-weight: bold;
+    background-color: #04AA6D;
+    color: white;
+    width: 100%;
+}
+
+/* .nationalParksByTypeTable-Body{
+    background-color: #1d0b0b;
+    table-striped;
+    table-hover
+
+} */
+/* tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #58705d;} */
