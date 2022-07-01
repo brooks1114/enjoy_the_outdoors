@@ -11,9 +11,7 @@ let UsersParkList = [];
 
 
 displayAllParksButton.addEventListener("click", function (event) {
-    // alert("You pushed the give all button");
-    // clearNationalParkstableContainer();
-    // clearArray(UsersParkList);
+
     UsersParkList = [];
     UsersParkList = nationalParksArray;
     // console.log("getParkListToDisplayByState: " + JSON.stringify(UsersParkList));
@@ -68,8 +66,6 @@ searchTypeDropDownWE.addEventListener("change", function (event) {
 
         // populate drop down options
         generateLocationsDDLOptions();
-
-
     }
 
     // When park type is selected by user then unhide the park type drop down, hide location drop down
@@ -86,16 +82,6 @@ searchTypeDropDownWE.addEventListener("change", function (event) {
 
 jurisdictionDropDownList.addEventListener("change", function (event) {
 
-    // alert("do location thingstriggered");
-    // let jurisdictionSelected = jurisdictionDropDownList.value;
-    // console.log("jurs selected by user equals: " + jurisdictionSelected);
-    // for (x = 0; x < nationalParksArray.length; x++){
-    //     console.log("getParkListToDisplay: " + JSON.stringify(nationalParksArray[x].LocationName));
-    // }
-
-    // nationalParksArray.forEach(o => console.log(o.LocationName.toUpperCase()));
-    // console.log(nationalParksArray[0][0]);
-
     // clear the user search reulsts list
     // clearArray(UsersParkList);
     UsersParkList = [];
@@ -110,10 +96,6 @@ jurisdictionDropDownList.addEventListener("change", function (event) {
 })
 
 parkTypesDropDownListWE.addEventListener("change", function (event) {
-
-    // alert("do location thingstriggered");
-    // let parkTypeSelected = parkTypesDropDownListWE.value;
-    // console.log("jurs selected by user equals: " + parkTypeSelected);
 
     // clearArray(UsersParkList);
     UsersParkList = [];
@@ -157,6 +139,12 @@ function getParkListToDisplayByState(array) {
 //         array.pop();
 //     }
 // }
+
+function getTableHeadersNationalParks() {
+    // console.log("inside function getTableHeadersNationalParks");
+
+    return tableHeadersNationalParks;
+}
 
 // This clears the container that holds the search reults. The table creator function and drop down selectors use this.
 //  Clearing the conatiner will prevent prior search results from being retained.
@@ -210,14 +198,6 @@ function generateTableNationalParksByType() {
 
 }
 
-
-function getTableHeadersNationalParks() {
-    // console.log("inside function getTableHeadersNationalParks");
-
-    return tableHeadersNationalParks;
-}
-
-
 // This function is dependant on the generateTableNationalParksByType function
 // If new data is needed then the getTableHeadersNationalParks will need to be updated to account for the additional columns and headers
 // The order of the adding data to innerText does not matter. 
@@ -226,14 +206,14 @@ function generateRows(array) {
     const tableElement = document.querySelector('.nationalParksByTypeTable');
     console.log("rows printing " + tableElement);
     for (i = 0; i < array.length; i++) {
-        // tableElement.appendChild(document.createElement('tr'));
+        
         row = document.createElement('tr');
 
         let LocationName = document.createElement('td')
 
         // stretch goal. look at the national park object, if it contains a weblink then create an anchor for the href
         // determinition is made if the park object is missing the "Visit" attribute. that could lead to bad links if attribute is added to array objects. leaving this In
-        if (array[i].Visit !== undefined) {
+        if (array[i].Visit !== undefined) {    // TODO refactor, "undefined" is a bad identifier for this if statement
             // obtain URL
             var webLink = array[i].Visit;
             // create the anchor
@@ -315,5 +295,19 @@ function generateRows(array) {
 
 // })
 
+    // alert("do location thingstriggered");
+    // let jurisdictionSelected = jurisdictionDropDownList.value;
+    // console.log("jurs selected by user equals: " + jurisdictionSelected);
+    // for (x = 0; x < nationalParksArray.length; x++){
+    //     console.log("getParkListToDisplay: " + JSON.stringify(nationalParksArray[x].LocationName));
+    // }
 
+    // nationalParksArray.forEach(o => console.log(o.LocationName.toUpperCase()));
+    // console.log(nationalParksArray[0][0]);
 
+    // alert("do location thingstriggered");
+    // let parkTypeSelected = parkTypesDropDownListWE.value;
+    // console.log("jurs selected by user equals: " + parkTypeSelected);
+        // alert("You pushed the give all button");
+    // clearNationalParkstableContainer();
+    // clearArray(UsersParkList);

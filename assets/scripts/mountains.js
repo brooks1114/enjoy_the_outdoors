@@ -50,10 +50,13 @@ function getMountainObjects(array) {
     return array.name === mountainSelection;
 }
 
+// NOTE: This function only works with arrays passed in containing 1 object and if no mountains have the same name
 function generateMountainCard(mountainSelection) {
     console.log("generateMountainCard was invoked");
     console.log("mountainSelection" + mountainSelection);
-    mountianObj = mountainSelection[0];
+
+    //Get the mountain obj off the array
+    // mountianObj = mountainSelection[0];
 
     MountainCardDiv.innerHTML = "";
 
@@ -61,7 +64,7 @@ function generateMountainCard(mountainSelection) {
     let mountainToCard = mountainsArray.filter(getMountainObjects);
     console.log("mountain for card = " + JSON.stringify(mountainToCard));
 
-    // strip the mountain obj out of the list
+    // strip the mountain obj out of the array list
     let cardMountainImageLocation = mountainToCard[0];
     console.log("cardMountainImageLocation = " + cardMountainImageLocation);
 
